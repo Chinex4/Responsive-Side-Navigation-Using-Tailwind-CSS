@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Nav Using Tailwind and Alpine</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+
+<body class="antialiased min-h-screen relative lg:flex" x-data="{open: false}">
+    <nav :class="{'translate-x-0 ease-in opacity-100':open === true, 'opacity-0 -translate-x-full ease-out':open === false}" class="duration-200 lg:transform-none lg:opacity-100 absolute -translate-x-full transform inset-0 lg:relative z-10 w-72 bg-indigo-900 text-white h-screen">
+        <div class="flex justify-between">
+            <span class="font-bold text-2xl sm:text-3xl p-4">Sidebar</span>
+            <button @click="open = false" class=" lg:hidden p-4 focus:bg-indigo-800 focus:outline-none hover:bg-indigo-800 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+            </button>
+        </div>
+        <ul class="mt-8">
+            <li><a href="#" class="px-4 py-2 hover:bg-indigo-800 rounded-md block">Home</a></li>
+            <li><a href="#" class="px-4 py-2 hover:bg-indigo-800 rounded-md block">About</a></li>
+            <li><a href="#" class="px-4 py-2 hover:bg-indigo-800 rounded-md block">Products</a></li>
+            <li><a href="#" class="px-4 py-2 hover:bg-indigo-800 rounded-md block">Pricing </a></li>
+        </ul>
+    </nav>
+    <div class="relative z-0 lg:flex-grow">
+        <header class="flex text-white items-center bg-gray-700">
+            <button class="p-4 focus:bg-indigo-600 lg:hidden focus:outline-none hover:bg-gray-600 rounded-full" @click="open = true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+            <span class="text-2xl sm:text-3xl p-4 block font-bold">AlpineJS</span>
+        </header>
+    </div>
+
+</body>
+
+</html>
